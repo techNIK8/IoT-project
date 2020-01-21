@@ -19,7 +19,7 @@ public class Client implements Runnable {
     ObjectInputStream ois;
     boolean disconnect = false;
 	 
-	//final String host = "localhost";
+	//final String host ="localhost";
 	
 	public Client() throws IOException {
 		host = InetAddress.getLocalHost();
