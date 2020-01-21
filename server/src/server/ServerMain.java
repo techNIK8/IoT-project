@@ -14,7 +14,7 @@ public class ServerMain {
 			
 			System.out.println("Waiting for the client...");
 			Socket socket = socketServer.accept();
-			System.out.println("Client connected!");
+			System.out.println("Client connected!!");
 			
 		Thread logic = new Thread(new Server(socket));
 	      
