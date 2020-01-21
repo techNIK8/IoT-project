@@ -62,6 +62,10 @@ public class Server implements Runnable {
 			}else 
 				return "";
 		}
+		
+		if(messageIn.equals("ask_info")) {
+			
+		}
 		return "";
 		
 	}
