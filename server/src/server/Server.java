@@ -10,18 +10,13 @@ import java.net.Socket;
 
 public class Server implements Runnable {
 
-	private static int port = 8887;
-	ServerSocket socketServer;
+	
 	Socket socket;
 	ObjectOutputStream oos;
     ObjectInputStream ois;
 	
-	public Server() throws IOException {
-		
-		socketServer = new ServerSocket(port);	
-		System.out.println("Waiting for the client...");
-		socket = socketServer.accept();
-		System.out.println("Client connected!");
+	public Server(Socket socket) throws IOException {
+		this.socket = socket;
 	}
 
 	@Override
@@ -38,9 +33,9 @@ public class Server implements Runnable {
 				String message = func((String)messageIn);
 				if (message.equals("Disconnect")) {
 					System.out.println("Closed correctly");
+					socket.close();
 					return;
 				}
-				else throw new IOException();
 			}
 		} catch (IOException e) {
 			
@@ -63,7 +58,6 @@ public class Server implements Runnable {
 			if(ok.equals("Ok")) {
 				ois.close();
 				oos.close();
-				socket.close();
 				return new String("Disconnect");
 			}else 
 				return "";

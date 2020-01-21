@@ -17,7 +17,7 @@ public class Client implements Runnable {
 	InetAddress host;
 	ObjectOutputStream oos;
     ObjectInputStream ois;
-    boolean disconnect = false;
+    boolean disconnect = true;
 	 
 	//final String host ="localhost";
 	
